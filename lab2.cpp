@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-	//Bmi bmi;
+	Bmi bmi;
 	ifstream inFile("infile.txt",ios::in);
 	if(!inFile){
 		cerr<<"Failed"<<endl;
@@ -30,10 +30,10 @@ int main()
 			iss>>a[i];
 			i++;
 		}
-		//int h= atoi(a[0]);
-		//int m= atoi(a[1]);
-		//bmi.setValue(m,h);
-		//inFile<<bmi.getValue();
+		int h = atoi(a[0]);
+		int m = atoi(a[1]);
+		bmi.setValue(m,h);
+		inFile<<bmi.getValue()<<'\t';
 	
 		//double d=a[1]/((a[0]/100)*(a[0]/100));
 		outFile<< "1";
