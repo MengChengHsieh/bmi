@@ -25,19 +25,29 @@ int main()
 	while(getline(inFile,s)){
 		istringstream iss(s);
 		string a[2];
-		int i=0;
-		while(iss){
+		
+		for(int i = 0;i<2;++i){
 			iss>>a[i];
-			i++;
+			//cout<<a[i]<<endl;
 		}
-		int h = atoi(a[0]);
-		int m = atoi(a[1]);
+		stringstream ss;
+		int h;
+		ss << a[0];
+		ss >> h;
+		//cout<<h<<endl;	
+		stringstream ss1;
+		int m ;
+		ss1 << a[1];
+		ss1 >> m;
+		//cout<<m<<endl;
 		bmi.setValue(m,h);
-		inFile<<bmi.getValue()<<'\t';
-	
+		//cout<< bmi.getValue()<<endl;
+		outFile<<bmi.getValue()<<'\t';
+		double d = bmi.getValue();
+		int cate = bmi.getCate(d);	
 		//double d=a[1]/((a[0]/100)*(a[0]/100));
-		outFile<< "1";
-		switch(1){
+		//outFile<< "1";
+		switch(cate){
 			case 1:
 				outFile<<"Very severely underweight "<<endl;
 				break;

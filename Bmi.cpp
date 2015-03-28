@@ -8,12 +8,16 @@ Bmi::Bmi(int m,int h){
 void Bmi::setValue(int m,int h){
 	mass=m;height=h;
 }
-float Bmi::getValue(){
-	result = mass / ((height/100)*(height/100));
-	return result;
+double Bmi::getValue(){
+	if(height == 0 ){
+		return -1;
+	}else{
+		result = (mass / ((height*0.01)*(height*0.01)));
+		return result;
+	}
 }
 int Bmi::getCate(double i){
-	if(i<15){
+	if(i<15 && i>0){
 		return 1;
 	}else if(i>=15 && i<16){
 		return 2;
